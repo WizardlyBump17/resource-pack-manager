@@ -15,4 +15,8 @@ public record ResourceLocation(@NonNull String namespace, @NonNull String path) 
     public static @NonNull ResourceLocation font(@NonNull String namespace, @NonNull String path) {
         return new ResourceLocation(namespace, "font/" + path);
     }
+
+    public static @NonNull ResourceLocation sounds(@NonNull String namespace, @NonNull String path) {
+        return new ResourceLocation(namespace, "sounds/" + path);
+    }
 }
