@@ -3,6 +3,9 @@ package com.wizardlybump17.resourcepackmanager.api.sound;
 import lombok.NonNull;
 
 /**
+ * <p>
+ *     A sound.
+ * </p>
  * @param name the path to this sound file from the "namespace/sounds" folder (excluding the .ogg file extension).
  *             The namespace defaults to {@code minecraft}, but it can be changed by prepending a namespace and separating it with a {@code :}.
  *             Use forward slashes instead of backslashes.

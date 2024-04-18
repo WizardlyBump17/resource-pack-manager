@@ -7,6 +7,12 @@ import lombok.NonNull;
 
 import java.util.List;
 
+/**
+ * <p>
+ *     Replacement for {@link LegacyUnicodeProvider}.
+ *     Uses the GNU Unifont .hex format
+ * </p>
+ */
 @Data
 @Builder
 public class UnihexProvider extends Provider {
