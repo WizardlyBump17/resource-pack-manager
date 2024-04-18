@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * @param filter section for filtering out files from resource packs applied below this one
  * @param overlays the resource pack overlays information
  */
-public record ResourcePack(@NonNull Pack pack, @NonNull Map<String, Language> languages, @NonNull Filter filter, @NonNull Overlays overlays) {
+public record PackMeta(@NonNull Pack pack, @NonNull Map<String, Language> languages, @NonNull Filter filter, @NonNull Overlays overlays) {
 
     /**
      * <p>
