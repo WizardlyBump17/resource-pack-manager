@@ -8,5 +8,5 @@ pluginManagement {
 }
 
 rootProject.name = "resource-pack-manager"
-include("api")
+include("resource-pack")
 include("spigot")

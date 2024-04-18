@@ -10,7 +10,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:${lombok}")
     compileOnly("org.jetbrains:annotations:${jetbrainsAnnotations}")
     paperweightDevelopmentBundle("io.papermc.paper:dev-bundle:${paper}")
-    implementation(project(":api"))
+    implementation(project(":resource-pack"))
     annotationProcessor("org.projectlombok:lombok:${lombok}")
 }
 
