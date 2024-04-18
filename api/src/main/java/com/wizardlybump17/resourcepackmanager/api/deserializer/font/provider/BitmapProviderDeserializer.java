@@ -1,0 +1,32 @@
+package com.wizardlybump17.resourcepackmanager.api.deserializer.font.provider;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
+import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.BitmapProvider;
+
+import java.io.IOException;
+import java.util.stream.StreamSupport;
+
+public class BitmapProviderDeserializer extends JsonDeserializer<BitmapProvider> {
+
+    @Override
+    public BitmapProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+        JsonNode node = parser.getCodec().readTree(parser);
+
+        JsonParser fileParser = node.get("file").traverse(parser.getCodec());
+        fileParser.nextToken();
+
+        ArrayNode charsNode = (ArrayNode) node.get("chars");
+
+        return BitmapProvider.builder()
+                .file(context.readValue(fileParser, ResourceLocation.class))
+                .height(node.get("height").asInt())
+                .ascent(node.get("ascent").asInt())
+                .chars(StreamSupport.stream(charsNode.spliterator(), false).map(JsonNode::asText).toList())
+                .build();
+    }
+}
