@@ -11,22 +11,16 @@ public abstract class Registry<K, V> {
 
     private final @NonNull Map<K, V> map = new HashMap<>();
 
-    protected abstract @NonNull K extractKey(@NonNull V value);
-
     protected @NonNull K mapKey(@NonNull K key) {
         return key;
     }
 
-    public void register(@NonNull V value) {
-        map.put(extractKey(value), value);
+    public void register(@NonNull K key, @NonNull V value) {
+        map.put(key, value);
     }
 
     public void unregister(@NonNull K key) {
         map.remove(mapKey(key));
-    }
-
-    public void unregisterValue(@NonNull V value) {
-        map.remove(extractKey(value));
     }
 
     public @NonNull Optional<V> get(@NonNull K key) {
@@ -35,10 +29,6 @@ public abstract class Registry<K, V> {
 
     public boolean has(@NonNull K key) {
         return map.containsKey(mapKey(key));
-    }
-
-    public boolean hasValue(@NonNull V value) {
-        return map.containsKey(extractKey(value));
     }
 
     public @NonNull Map<K, V> getMap() {
