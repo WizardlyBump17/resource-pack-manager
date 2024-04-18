@@ -1,6 +1,6 @@
-package com.wizardlybump17.resourcepackmanager.api.font.provider;
+package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 
-import com.wizardlybump17.resourcepackmanager.api.ResourceLocation;
+import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;

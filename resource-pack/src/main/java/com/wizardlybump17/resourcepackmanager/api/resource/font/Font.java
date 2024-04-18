@@ -1,6 +1,7 @@
-package com.wizardlybump17.resourcepackmanager.api.font;
+package com.wizardlybump17.resourcepackmanager.api.resource.font;
 
-import com.wizardlybump17.resourcepackmanager.api.font.provider.Provider;
+import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
+import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.Provider;
 import lombok.NonNull;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  *     The default font is defined by the font {@code minecraft:default} while the default font used by enchantment tables is defined by the font {@code minecraft:alt}.
  * </p>
  * <p>
- *     The {@link com.wizardlybump17.resourcepackmanager.api.ResourceLocation}s referenced in {@link Provider}s should also include the file extensions, as there is no sole file extension used throughout.
+ *     The {@link ResourceLocation}s referenced in {@link Provider}s should also include the file extensions, as there is no sole file extension used throughout.
  * </p>
  * @param providers a {@link List} of {@link Provider}s that make up {@code this} {@link Font}
  */

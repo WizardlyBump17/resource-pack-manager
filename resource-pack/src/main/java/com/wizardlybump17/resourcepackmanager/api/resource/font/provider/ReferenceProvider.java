@@ -1,13 +1,14 @@
-package com.wizardlybump17.resourcepackmanager.api.font.provider;
+package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 
-import com.wizardlybump17.resourcepackmanager.api.ResourceLocation;
+import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
+import com.wizardlybump17.resourcepackmanager.api.resource.font.Font;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
 /**
  * <p>
- *     Links to another {@link com.wizardlybump17.resourcepackmanager.api.font.Font} file to be copied and included in this {@link com.wizardlybump17.resourcepackmanager.api.font.Font}.
+ *     Links to another {@link Font} file to be copied and included in this {@link Font}.
  *     Guarantees the referenced provider is loaded only once.
  *     Inclusion is performed after all fonts are loaded.
  * </p>

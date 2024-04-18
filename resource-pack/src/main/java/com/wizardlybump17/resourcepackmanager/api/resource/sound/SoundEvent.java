@@ -1,4 +1,4 @@
-package com.wizardlybump17.resourcepackmanager.api.sound;
+package com.wizardlybump17.resourcepackmanager.api.resource.sound;
 
 import lombok.NonNull;
 

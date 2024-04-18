@@ -1,4 +1,4 @@
-package com.wizardlybump17.resourcepackmanager.api;
+package com.wizardlybump17.resourcepackmanager.api.resource;
 
 import lombok.NonNull;
 
