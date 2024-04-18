@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class BitmapProvider extends Provider {
+public class BitmapProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "bitmap";
 

@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class TtfProvider extends Provider {
+public class TtfProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "ttf";
 

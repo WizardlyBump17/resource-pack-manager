@@ -15,7 +15,7 @@ import lombok.NonNull;
 @Data
 @Builder
 @Deprecated
-public class LegacyUnicodeProvider extends Provider {
+public class LegacyUnicodeProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "legacy_unicode";
 

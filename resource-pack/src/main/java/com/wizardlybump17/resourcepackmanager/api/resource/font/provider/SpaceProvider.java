@@ -13,7 +13,7 @@ import java.util.Map;
  */
 @Data
 @Builder
-public class SpaceProvider extends Provider {
+public class SpaceProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "space";
 

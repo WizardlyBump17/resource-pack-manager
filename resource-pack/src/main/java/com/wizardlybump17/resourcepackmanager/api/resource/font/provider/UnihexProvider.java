@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class UnihexProvider extends Provider {
+public class UnihexProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "unihex";
 

@@ -18,7 +18,7 @@ import lombok.NonNull;
  */
 @Data
 @Builder
-public class ReferenceProvider extends Provider {
+public class ReferenceProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "reference";
 
