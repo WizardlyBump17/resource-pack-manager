@@ -1,6 +1,5 @@
 package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
@@ -12,7 +11,6 @@ import java.util.Map;
  * </p>
  */
 @Data
-@Builder
 public class SpaceProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "space";

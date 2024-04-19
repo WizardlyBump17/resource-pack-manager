@@ -2,7 +2,6 @@ package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import com.wizardlybump17.resourcepackmanager.api.resource.font.Font;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
@@ -17,7 +16,6 @@ import lombok.NonNull;
  * </p>
  */
 @Data
-@Builder
 public class ReferenceProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "reference";

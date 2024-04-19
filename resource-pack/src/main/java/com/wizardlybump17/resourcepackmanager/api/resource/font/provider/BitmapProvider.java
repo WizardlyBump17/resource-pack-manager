@@ -1,7 +1,6 @@
 package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
@@ -14,7 +13,6 @@ import java.util.List;
  * </p>
  */
 @Data
-@Builder
 public class BitmapProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "bitmap";

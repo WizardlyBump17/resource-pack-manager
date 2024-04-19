@@ -22,11 +22,11 @@ public class BitmapProviderDeserializer extends JsonDeserializer<BitmapProvider>
 
         ArrayNode charsNode = (ArrayNode) node.get("chars");
 
-        return BitmapProvider.builder()
-                .file(context.readValue(fileParser, ResourceLocation.class))
-                .height(node.get("height").asInt())
-                .ascent(node.get("ascent").asInt())
-                .chars(StreamSupport.stream(charsNode.spliterator(), false).map(JsonNode::asText).toList())
-                .build();
+        return new BitmapProvider(
+                context.readValue(fileParser, ResourceLocation.class),
+                node.get("height").asInt(BitmapProvider.DEFAULT_HEIGHT),
+                node.get("ascent").asInt(),
+                StreamSupport.stream(charsNode.spliterator(), false).map(JsonNode::asText).toList()
+        );
     }
 }

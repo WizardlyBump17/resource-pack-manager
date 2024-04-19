@@ -1,7 +1,6 @@
 package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
@@ -13,7 +12,6 @@ import lombok.NonNull;
  * @deprecated
  */
 @Data
-@Builder
 @Deprecated
 public class LegacyUnicodeProvider extends FontProvider {
 
