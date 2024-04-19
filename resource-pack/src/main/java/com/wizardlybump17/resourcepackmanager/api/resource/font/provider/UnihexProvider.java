@@ -25,7 +25,7 @@ public class UnihexProvider extends FontProvider {
      * </p>
      * @return the {@link ResourceLocation} of the ZIP archive
      */
-    private final @NonNull ResourceLocation file;
+    private final @NonNull ResourceLocation hexFile;
     /**
      * -- GETTER --
      * <p>
