@@ -15,6 +15,6 @@ public class ReferenceProviderDeserializer extends JsonDeserializer<ReferencePro
     @Override
     public ReferenceProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
         JsonNode node = parser.getCodec().readTree(parser);
-        return new ReferenceProvider(DeserializationUtil.getValue(parser, node, context, "context", ResourceLocation.class));
+        return new ReferenceProvider(DeserializationUtil.getValue(parser, node, context, "id", ResourceLocation.class));
     }
 }
