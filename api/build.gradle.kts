@@ -9,4 +9,5 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:${lombok}")
     implementation(project(":resource-pack"))
     implementation("com.fasterxml.jackson.core:jackson-databind:${jackson}")
+//    testAnnotationProcessor("org.projectlombok:lombok:${lombok}")
 }

@@ -5,6 +5,8 @@ plugins {
 }
 
 allprojects {
+    val junit = "5.10.2"
+
     apply(plugin = "java")
     apply(plugin = "com.github.johnrengelman.shadow")
     apply(plugin = "io.freefair.lombok")
@@ -31,5 +33,14 @@ allprojects {
                 addStringOption("Xmaxwarns", "1")
             }
         }
+
+        test {
+            useJUnitPlatform()
+        }
+    }
+
+    dependencies {
+        testImplementation(platform("org.junit:junit-bom:${junit}"))
+        testImplementation("org.junit.jupiter:junit-jupiter:${junit}")
     }
 }
