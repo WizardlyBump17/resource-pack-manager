@@ -3,6 +3,7 @@ package com.wizardlybump17.resourcepackmanager.api.resource.font.provider;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -23,6 +24,10 @@ public class SpaceProvider extends FontProvider {
      * </p>
      */
     private final @NonNull Map<Character, Float> advances;
+
+    public SpaceProvider(@NonNull Map<Character, Float> advances) {
+        this.advances = Collections.unmodifiableMap(advances);
+    }
 
     @Override
     public @NonNull String getType() {
