@@ -18,6 +18,7 @@ import java.util.List;
 public class BitmapProvider extends FontProvider {
 
     public static final @NonNull String TYPE = "bitmap";
+    public static final int DEFAULT_HEIGHT = 8;
 
     /**
      * -- GETTER --

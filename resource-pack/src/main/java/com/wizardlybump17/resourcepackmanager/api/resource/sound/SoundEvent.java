@@ -2,6 +2,7 @@ package com.wizardlybump17.resourcepackmanager.api.resource.sound;
 
 import lombok.NonNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,4 +17,8 @@ import java.util.List;
  * @param sounds the sound files {@code this} {@link SoundEvent} uses. One of the listed {@link Sound}s is randomly selected to play when {@code this} {@link SoundEvent} is triggered
  */
 public record SoundEvent(@NonNull String category, boolean replace, @NonNull String subtitle, @NonNull List<Sound> sounds) {
+
+    public static final boolean DEFAULT_REPLACE = false;
+    public static final @NonNull String DEFAULT_SUBTITLE = "";
+    public static final @NonNull List<Sound> DEFAULT_SOUNDS = Collections.emptyList();
 }

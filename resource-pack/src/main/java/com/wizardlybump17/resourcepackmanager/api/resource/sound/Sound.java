@@ -26,6 +26,14 @@ import lombok.NonNull;
  */
 public record Sound(@NonNull String name, float volume, float pitch, int weight, boolean stream, int attenuationDistance, boolean preload, @NonNull Type type) {
 
+    public static final float DEFAULT_VOLUME = 1.0F;
+    public static final float DEFAULT_PITCH = 1.0F;
+    public static final int DEFAULT_WEIGHT = 1;
+    public static final boolean DEFAULT_STREAM = false;
+    public static final int DEFAULT_ATTENUATION_DISTANCE = 16;
+    public static final boolean DEFAULT_PRELOAD = false;
+    public static final @NonNull Type DEFAULT_TYPE = Type.SOUND;
+
     public enum Type {
 
         /**
