@@ -4,26 +4,24 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
-import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.BitmapProvider;
+import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.TtfProvider;
 import com.wizardlybump17.resourcepackmanager.api.util.DeserializationUtil;
 
 import java.io.IOException;
 import java.util.stream.StreamSupport;
 
-public class BitmapProviderDeserializer extends JsonDeserializer<BitmapProvider> {
+public class TtfProviderDeserializer extends JsonDeserializer<TtfProvider> {
 
     @Override
-    public BitmapProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
+    public TtfProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
         JsonNode node = parser.getCodec().readTree(parser);
-        ArrayNode charsNode = (ArrayNode) node.get("chars");
-
-        return new BitmapProvider(
+        return new TtfProvider(
                 DeserializationUtil.getValue(parser, node, context, "file", ResourceLocation.class),
-                node.get("height").asInt(BitmapProvider.DEFAULT_HEIGHT),
-                node.get("ascent").asInt(),
-                StreamSupport.stream(charsNode.spliterator(), false).map(JsonNode::asText).toList()
+                StreamSupport.stream(node.get("shift").spliterator(), false).map(value -> value.numberValue().floatValue()).toList(),
+                node.get("size").numberValue().floatValue(),
+                node.get("oversample").numberValue().floatValue(),
+                StreamSupport.stream(node.get("skip").spliterator(), false).map(value -> value.asText().charAt(0)).toList()
         );
     }
 }
