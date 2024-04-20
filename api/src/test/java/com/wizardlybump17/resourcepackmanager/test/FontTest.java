@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-class FontProviderTest {
+class FontTest {
 
     public static final @NonNull ObjectMapper MAPPER;
 
