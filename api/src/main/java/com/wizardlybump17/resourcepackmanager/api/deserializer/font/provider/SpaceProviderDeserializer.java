@@ -8,13 +8,18 @@ import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.SpacePr
 import com.wizardlybump17.resourcepackmanager.api.util.DeserializationUtil;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 public class SpaceProviderDeserializer extends JsonDeserializer<SpaceProvider> {
 
+    @SuppressWarnings("unchecked")
     @Override
     public SpaceProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
         JsonNode node = parser.getCodec().readTree(parser);
-        return new SpaceProvider(DeserializationUtil.getValue(parser, node, context, "advances", Map.class));
+        Map<String, Number> map = DeserializationUtil.getValue(parser, node, context, "advances", Map.class);
+        Map<Character, Float> advances = new HashMap<>(map.size());
+        map.forEach((key, value) -> advances.put(key.charAt(0), value.floatValue()));
+        return new SpaceProvider(advances);
     }
 }
