@@ -12,6 +12,7 @@ public class UnihexProviderSerializer extends JsonSerializer<UnihexProvider> {
     @Override
     public void serialize(UnihexProvider value, JsonGenerator generator, SerializerProvider provider) throws IOException {
         generator.writeStartObject();
+        generator.writeStringField("type", value.getType());
         generator.writeObjectField("hex_file", value.getHexFile().toString());
         generator.writeObjectField("size_overrides", value.getSizeOverrides());
         generator.writeEndObject();
