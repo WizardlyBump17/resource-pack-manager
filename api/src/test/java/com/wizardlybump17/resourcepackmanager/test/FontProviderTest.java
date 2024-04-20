@@ -36,7 +36,7 @@ class FontProviderTest {
     }
 
     @Test
-    void testBitmapProvider() throws IOException {
+    void testBitmapSerialization() throws IOException {
         BitmapProvider provider = new BitmapProvider(
                 new ResourceLocation("test", "test.png"),
                 8,
@@ -54,7 +54,7 @@ class FontProviderTest {
     }
 
     @Test
-    void testLegacyUnicodeProvider() throws IOException {
+    void testLegacyUnicodeSerialization() throws IOException {
         LegacyUnicodeProvider provider = new LegacyUnicodeProvider(
                 new ResourceLocation("test", "test.bin"),
                 new ResourceLocation("test", "test.png")
@@ -67,7 +67,7 @@ class FontProviderTest {
     }
 
     @Test
-    void testReferenceProvider() throws IOException {
+    void testReferenceSerialization() throws IOException {
         ReferenceProvider provider = new ReferenceProvider(new ResourceLocation("test", "test"));
 
         String value = MAPPER.writeValueAsString(provider);
@@ -77,7 +77,7 @@ class FontProviderTest {
     }
 
     @Test
-    void testSpaceProvider() throws IOException {
+    void testSpaceSerialization() throws IOException {
         SpaceProvider provider = new SpaceProvider(
                 Map.of(
                         'a', 1f,
@@ -93,7 +93,7 @@ class FontProviderTest {
     }
 
     @Test
-    void testTtfProvider() throws IOException {
+    void testTtfSerialization() throws IOException {
         TtfProvider provider = new TtfProvider(
                 new ResourceLocation("test", "test.ttf"),
                 List.of(1f, 2f),
@@ -109,7 +109,7 @@ class FontProviderTest {
     }
 
     @Test
-    void testUnihexProvider() throws IOException {
+    void testUnihexSerialization() throws IOException {
         UnihexProvider provider = new UnihexProvider(
                 new ResourceLocation("test", "test.hex"),
                 List.of(
