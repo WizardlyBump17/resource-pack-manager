@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.wizardlybump17.resourcepackmanager.api.deserializer.font.provider.*;
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.*;
-import com.wizardlybump17.resourcepackmanager.api.serializer.font.provider.UnihexProviderSerializer;
+import com.wizardlybump17.resourcepackmanager.api.serializer.font.provider.*;
 import com.wizardlybump17.resourcepackmanager.test.util.SerializationUtil;
 import lombok.NonNull;
 import org.junit.jupiter.api.Test;
@@ -30,6 +30,12 @@ class FontProviderTest {
                 .addDeserializer(SpaceProvider.class, new SpaceProviderDeserializer())
                 .addDeserializer(TtfProvider.class, new TtfProviderDeserializer())
                 .addDeserializer(UnihexProvider.class, new UnihexProviderDeserializer())
+                .addSerializer(new UnihexProviderSerializer())
+                .addSerializer(new BitmapProviderSerializer())
+                .addSerializer(new LegacyUnicodeProviderSerializer())
+                .addSerializer(new ReferenceProviderSerializer())
+                .addSerializer(new SpaceProviderSerializer())
+                .addSerializer(new TtfProviderSerializer())
                 .addSerializer(new UnihexProviderSerializer());
 
         MAPPER.registerModule(module);

@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.BitmapProvider;
-import com.wizardlybump17.resourcepackmanager.api.util.DeserializationUtil;
 
 import java.io.IOException;
 import java.util.stream.StreamSupport;
@@ -20,7 +19,7 @@ public class BitmapProviderDeserializer extends JsonDeserializer<BitmapProvider>
         ArrayNode charsNode = (ArrayNode) node.get("chars");
 
         return new BitmapProvider(
-                DeserializationUtil.getValue(parser, node, context, "file", ResourceLocation.class),
+                ResourceLocation.fromString(node.get("file").asText()),
                 node.get("height").asInt(BitmapProvider.DEFAULT_HEIGHT),
                 node.get("ascent").asInt(),
                 StreamSupport.stream(charsNode.spliterator(), false).map(JsonNode::asText).toList()

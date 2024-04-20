@@ -16,7 +16,7 @@ public class UnihexProviderDeserializer extends JsonDeserializer<UnihexProvider>
     public UnihexProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
         JsonNode node = parser.getCodec().readTree(parser);
         return new UnihexProvider(
-                DeserializationUtil.getValue(parser, node, context, "hex_file", ResourceLocation.class),
+                ResourceLocation.fromString(node.get("hex_file").asText()),
                 DeserializationUtil.getList(parser, node, context, "size_overrides", UnihexProvider.SizeOverride.class)
         );
     }

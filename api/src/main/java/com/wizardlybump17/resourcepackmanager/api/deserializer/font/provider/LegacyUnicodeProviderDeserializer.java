@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.LegacyUnicodeProvider;
-import com.wizardlybump17.resourcepackmanager.api.util.DeserializationUtil;
 
 import java.io.IOException;
 
@@ -16,8 +15,8 @@ public class LegacyUnicodeProviderDeserializer extends JsonDeserializer<LegacyUn
     public LegacyUnicodeProvider deserialize(JsonParser parser, DeserializationContext context) throws IOException {
         JsonNode node = parser.getCodec().readTree(parser);
         return new LegacyUnicodeProvider(
-                DeserializationUtil.getValue(parser, node, context, "sizes", ResourceLocation.class),
-                DeserializationUtil.getValue(parser, node, context, "template", ResourceLocation.class)
+                ResourceLocation.fromString(node.get("sizes").asText()),
+                ResourceLocation.fromString(node.get("template").asText())
         );
     }
 }
