@@ -9,7 +9,6 @@ import com.wizardlybump17.resourcepackmanager.api.resource.font.provider.UnihexP
 import com.wizardlybump17.resourcepackmanager.api.util.DeserializationUtil;
 
 import java.io.IOException;
-import java.util.List;
 
 public class UnihexProviderDeserializer extends JsonDeserializer<UnihexProvider> {
 
@@ -18,7 +17,7 @@ public class UnihexProviderDeserializer extends JsonDeserializer<UnihexProvider>
         JsonNode node = parser.getCodec().readTree(parser);
         return new UnihexProvider(
                 DeserializationUtil.getValue(parser, node, context, "hex_file", ResourceLocation.class),
-                DeserializationUtil.getValue(parser, node, context, "size_overrides", List.class)
+                DeserializationUtil.getList(parser, node, context, "size_overrides", UnihexProvider.SizeOverride.class)
         );
     }
 }
