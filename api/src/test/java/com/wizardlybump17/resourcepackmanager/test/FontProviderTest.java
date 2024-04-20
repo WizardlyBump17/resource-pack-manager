@@ -46,11 +46,7 @@ class FontProviderTest {
                         "def"
                 )
         );
-
-        String value = MAPPER.writeValueAsString(provider);
-        BitmapProvider deserialized = MAPPER.readValue(value, BitmapProvider.class);
-
-        Assertions.assertEquals(provider, deserialized);
+        testSerialization(provider);
     }
 
     @Test
@@ -59,21 +55,13 @@ class FontProviderTest {
                 new ResourceLocation("test", "test.bin"),
                 new ResourceLocation("test", "test.png")
         );
-
-        String value = MAPPER.writeValueAsString(provider);
-        LegacyUnicodeProvider deserialized = MAPPER.readValue(value, LegacyUnicodeProvider.class);
-
-        Assertions.assertEquals(provider, deserialized);
+        testSerialization(provider);
     }
 
     @Test
     void testReferenceSerialization() throws IOException {
         ReferenceProvider provider = new ReferenceProvider(new ResourceLocation("test", "test"));
-
-        String value = MAPPER.writeValueAsString(provider);
-        ReferenceProvider deserialized = MAPPER.readValue(value, ReferenceProvider.class);
-
-        Assertions.assertEquals(provider, deserialized);
+        testSerialization(provider);
     }
 
     @Test
@@ -85,11 +73,7 @@ class FontProviderTest {
                         'c', 3f
                 )
         );
-
-        String value = MAPPER.writeValueAsString(provider);
-        SpaceProvider deserialized = MAPPER.readValue(value, SpaceProvider.class);
-
-        Assertions.assertEquals(provider, deserialized);
+        testSerialization(provider);
     }
 
     @Test
@@ -101,11 +85,7 @@ class FontProviderTest {
                 3,
                 List.of('a', 'b', 'c')
         );
-
-        String value = MAPPER.writeValueAsString(provider);
-        TtfProvider deserialized = MAPPER.readValue(value, TtfProvider.class);
-
-        Assertions.assertEquals(provider, deserialized);
+        testSerialization(provider);
     }
 
     @Test
@@ -117,9 +97,12 @@ class FontProviderTest {
                         new UnihexProvider.SizeOverride('d', 'f', 3, 4)
                 )
         );
+        testSerialization(provider);
+    }
 
+    static void testSerialization(@NonNull FontProvider provider) throws IOException {
         String value = MAPPER.writeValueAsString(provider);
-        UnihexProvider deserialized = MAPPER.readValue(value, UnihexProvider.class);
+        FontProvider deserialized = MAPPER.readValue(value, provider.getClass());
 
         Assertions.assertEquals(provider, deserialized);
     }
