@@ -5,7 +5,7 @@ import org.jetbrains.annotations.Nullable;
 
 /**
  * <p>
- *     {@link ResourceLocation}s (also known as namespaced IDs, namespaced identifiers, resource identifiers,[2] or namespaced strings[3])
+ *     {@link ResourceLocation}s (also known as namespaced IDs, namespaced identifiers, resource identifiers, or namespaced strings)
  *     are a way to declare and specify game objects in Minecraft, which can identify built-in and user-defined objects without potential ambiguity or conflicts.
  * </p>
  * @param namespace the namespace of the resource
