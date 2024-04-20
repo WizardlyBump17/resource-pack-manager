@@ -89,10 +89,6 @@ class FontProviderTest {
         String value = MAPPER.writeValueAsString(provider);
         SpaceProvider deserialized = MAPPER.readValue(value, SpaceProvider.class);
 
-        System.out.println(value);
-        System.out.println(deserialized);
-        System.out.println(provider);
-
         Assertions.assertEquals(provider, deserialized);
     }
 
