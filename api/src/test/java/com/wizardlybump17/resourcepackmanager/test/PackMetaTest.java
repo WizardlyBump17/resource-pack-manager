@@ -15,7 +15,7 @@ class PackMetaTest {
     static final @NonNull ObjectMapper MAPPER = new ObjectMapper();
 
     @Test
-    void testPackMeta() throws Throwable {
+    void testSerialization() throws Throwable {
         PackMeta meta = new PackMeta(
                 new PackMeta.Pack(
                         28,
@@ -43,10 +43,6 @@ class PackMetaTest {
 
         String value = MAPPER.writeValueAsString(meta);
         PackMeta deserialized = MAPPER.readValue(value, PackMeta.class);
-
-        meta.filter().block().forEach(entry -> System.out.print(entry.namespace().hashCode() + " " + entry.path().hashCode() + " "));
-        System.out.println();
-        deserialized.filter().block().forEach(entry -> System.out.print(entry.namespace().hashCode() + " " + entry.path().hashCode() + " "));
 
         Assertions.assertEquals(meta, deserialized);
     }
