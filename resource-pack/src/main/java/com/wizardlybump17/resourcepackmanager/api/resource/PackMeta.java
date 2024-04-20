@@ -5,6 +5,7 @@ import lombok.NonNull;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
@@ -73,6 +74,21 @@ public record PackMeta(@NonNull Pack pack, @NonNull Map<String, Language> langua
          * @param path a {@link Pattern} for the paths of files to be filtered out
          */
         public record PatternEntry(@NonNull Pattern namespace, @NonNull Pattern path) {
+
+            @Override
+            public boolean equals(Object object) {
+                if (this == object)
+                    return true;
+                if (object == null || getClass() != object.getClass())
+                    return false;
+                PatternEntry that = (PatternEntry) object;
+                return Objects.equals(namespace.pattern(), that.namespace.pattern()) && Objects.equals(path.pattern(), that.path.pattern());
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(namespace.pattern(), path.pattern());
+            }
         }
     }
 
