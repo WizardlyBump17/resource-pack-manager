@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -54,6 +55,13 @@ public class BitmapProvider extends FontProvider {
      * @return a {@link List} of {@link String}s containing the characters replaced by this provider
      */
     private final @NonNull List<String> chars;
+
+    public BitmapProvider(@NonNull ResourceLocation file, int height, int ascent, @NonNull List<String> chars) {
+        this.file = file;
+        this.height = height;
+        this.ascent = ascent;
+        this.chars = Collections.unmodifiableList(chars);
+    }
 
     @Override
     public @NonNull String getType() {

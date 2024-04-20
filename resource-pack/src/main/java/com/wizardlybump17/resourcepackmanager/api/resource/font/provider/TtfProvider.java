@@ -4,6 +4,7 @@ import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -61,6 +62,14 @@ public class TtfProvider extends FontProvider {
      * @return the characters to exclude
      */
     private final @NonNull List<Character> skip;
+
+    public TtfProvider(@NonNull ResourceLocation file, @NonNull List<Float> shift, float size, float oversample, @NonNull List<Character> skip) {
+        this.file = file;
+        this.shift = Collections.unmodifiableList(shift);
+        this.size = size;
+        this.oversample = oversample;
+        this.skip = Collections.unmodifiableList(skip);
+    }
 
     @Override
     public @NonNull String getType() {

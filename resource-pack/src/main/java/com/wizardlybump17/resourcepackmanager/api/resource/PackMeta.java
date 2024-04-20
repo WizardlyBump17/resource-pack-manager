@@ -2,6 +2,7 @@ package com.wizardlybump17.resourcepackmanager.api.resource;
 
 import lombok.NonNull;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -22,6 +23,10 @@ import java.util.regex.Pattern;
  * @param overlays the resource pack overlays information
  */
 public record PackMeta(@NonNull Pack pack, @NonNull Map<String, Language> languages, @NonNull Filter filter, @NonNull Overlays overlays) {
+
+    public PackMeta {
+        languages = Collections.unmodifiableMap(languages);
+    }
 
     /**
      * <p>
@@ -59,6 +64,10 @@ public record PackMeta(@NonNull Pack pack, @NonNull Map<String, Language> langua
      */
     public record Filter(@NonNull List<PatternEntry> block) {
 
+        public Filter {
+            block = Collections.unmodifiableList(block);
+        }
+
         /**
          * @param namespace a {@link Pattern} for the namespace of files to be filtered out
          * @param path a {@link Pattern} for the paths of files to be filtered out
@@ -74,6 +83,10 @@ public record PackMeta(@NonNull Pack pack, @NonNull Map<String, Language> langua
      * @param entries {@link List} of resource pack {@link OverlayEntry}, which is read from the bottom to top by the game
      */
     public record Overlays(@NonNull List<OverlayEntry> entries) {
+
+        public Overlays {
+            entries = Collections.unmodifiableList(entries);
+        }
 
         /**
          * @param directory the directory where the overlay pack is located relative to the resource packs root directory.

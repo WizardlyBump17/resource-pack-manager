@@ -4,6 +4,7 @@ import com.wizardlybump17.resourcepackmanager.api.resource.ResourceLocation;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,6 +35,11 @@ public class UnihexProvider extends FontProvider {
      * @return the {@link List} of {@link SizeOverride}
      */
     private final @NonNull List<SizeOverride> sizeOverrides;
+
+    public UnihexProvider(@NonNull ResourceLocation hexFile, @NonNull List<SizeOverride> sizeOverrides) {
+        this.hexFile = hexFile;
+        this.sizeOverrides = Collections.unmodifiableList(sizeOverrides);
+    }
 
     @Override
     public @NonNull String getType() {

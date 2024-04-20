@@ -18,6 +18,10 @@ import java.util.List;
  */
 public record SoundEvent(@NonNull String category, boolean replace, @NonNull String subtitle, @NonNull List<Sound> sounds) {
 
+    public SoundEvent {
+        sounds = Collections.unmodifiableList(sounds);
+    }
+
     public static final boolean DEFAULT_REPLACE = false;
     public static final @NonNull String DEFAULT_SUBTITLE = "";
     public static final @NonNull List<Sound> DEFAULT_SOUNDS = Collections.emptyList();
