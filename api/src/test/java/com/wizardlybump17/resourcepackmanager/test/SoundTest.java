@@ -3,8 +3,8 @@ package com.wizardlybump17.resourcepackmanager.test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wizardlybump17.resourcepackmanager.api.resource.sound.Sound;
 import com.wizardlybump17.resourcepackmanager.api.resource.sound.SoundEvent;
+import com.wizardlybump17.resourcepackmanager.test.util.SerializationUtil;
 import lombok.NonNull;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -39,10 +39,6 @@ class SoundTest {
                 "test",
                 sounds
         );
-
-        String value = MAPPER.writeValueAsString(event);
-        SoundEvent deserialized = MAPPER.readValue(value, SoundEvent.class);
-
-        Assertions.assertEquals(event, deserialized);
+        SerializationUtil.testSerialization(MAPPER, event);
     }
 }

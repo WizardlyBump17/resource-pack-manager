@@ -2,8 +2,8 @@ package com.wizardlybump17.resourcepackmanager.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wizardlybump17.resourcepackmanager.api.resource.PackMeta;
+import com.wizardlybump17.resourcepackmanager.test.util.SerializationUtil;
 import lombok.NonNull;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -40,10 +40,6 @@ class PackMetaTest {
                         )
                 )
         );
-
-        String value = MAPPER.writeValueAsString(meta);
-        PackMeta deserialized = MAPPER.readValue(value, PackMeta.class);
-
-        Assertions.assertEquals(meta, deserialized);
+        SerializationUtil.testSerialization(MAPPER, meta);
     }
 }
