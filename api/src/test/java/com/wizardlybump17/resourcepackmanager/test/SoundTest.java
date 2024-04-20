@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-class SoundSerializationTest {
+class SoundTest {
 
     static final @NonNull ObjectMapper MAPPER = new ObjectMapper();
 
     @Test
-    void testSound() throws Throwable {
+    void testSerialization() throws Throwable {
         List<Sound> sounds = new ArrayList<>();
         Random random = new Random(0);
         int amount = 100;
