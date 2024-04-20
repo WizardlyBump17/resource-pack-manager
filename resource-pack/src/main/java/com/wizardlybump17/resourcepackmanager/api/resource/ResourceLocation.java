@@ -17,6 +17,11 @@ public record ResourceLocation(@NonNull String namespace, @NonNull String path) 
         return "assets/" + namespace + "/" + path;
     }
 
+    @Override
+    public String toString() {
+        return namespace + ":" + path;
+    }
+
     public static @Nullable ResourceLocation fromString(@NonNull String string) {
         String[] split = string.split(":");
         if (split.length > 2)
